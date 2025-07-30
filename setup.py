@@ -13,9 +13,8 @@ with open("requirements.txt") as file:
 
 setup(
     name="s3fs",
-    # version=versioneer.get_version(),
-    # cmdclass=versioneer.get_cmdclass(),
-    version="2025.7.1",
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
