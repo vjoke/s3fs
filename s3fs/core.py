@@ -541,7 +541,9 @@ class S3FileSystem(AsyncFileSystem):
                 if key not in drop_keys
             }
             config_kwargs["signature_version"] = UNSIGNED
-
+        # refer to https://github.com/iterative/dvc/issues/10256 
+        config_kwargs['s3'] = {'addressing_style': 'virtual'}
+        logger.warning("force to use virtual addressing style")
         conf = AioConfig(**config_kwargs)
         if self.session is None or refresh:
             self.session = aiobotocore.session.AioSession(**self.kwargs)
